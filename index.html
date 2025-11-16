@@ -37,10 +37,12 @@
             font-weight: 500;
         }
 
-        /* Bebek resmi */
+        /* Bebek resmi - fluid responsive */
         .baby-img {
-            width: 200px;
-            height: 200px;
+            width: 20vw;          /* Ekran genişliğinin %20'si */
+            max-width: 200px;     /* Masaüstünde maksimum 200px */
+            min-width: 120px;     /* Mobilde minimum 120px */
+            aspect-ratio: 1 / 1;  /* Kare / yuvarlak */
             border-radius: 50%;
             border: 3px dashed #b44b7a;
             padding: 5px;
@@ -68,21 +70,6 @@
 
         .visitor-counter a:hover {
             text-decoration: underline;
-        }
-
-        /* Responsive */
-        @media (max-width: 576px) {
-            .baby-img {
-                width: 90px;
-                height: 90px;
-            }
-        }
-
-        @media (min-width: 577px) and (max-width: 768px) {
-            .baby-img {
-                width: 100px;
-                height: 100px;
-            }
         }
     </style>
 </head>
