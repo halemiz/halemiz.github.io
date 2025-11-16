@@ -36,6 +36,54 @@
             color: #b44b7a;
             font-weight: 500;
         }
+
+        /* Bebek resmi */
+        .baby-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 3px dashed #b44b7a;
+            padding: 5px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .baby-img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Visitor counter stil */
+        .visitor-counter {
+            font-size: 0.9rem;
+            color: #b44b7a;
+            margin-top: 15px;
+        }
+
+        .visitor-counter a {
+            text-decoration: none;
+            color: #b44b7a;
+            font-weight: 500;
+        }
+
+        .visitor-counter a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 576px) {
+            .baby-img {
+                width: 90px;
+                height: 90px;
+            }
+        }
+
+        @media (min-width: 577px) and (max-width: 768px) {
+            .baby-img {
+                width: 100px;
+                height: 100px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -50,13 +98,17 @@
         <h5 class="text-center mb-3 age-label">Yaş Bilgileri</h5>
         <div id="ageResult" class="text-center fs-5"></div>
 
-        <!-- Free Visitor Counter Başlangıç -->
-        <div class="text-center mt-3">
+        <!-- Bebek resmi -->
+        <div class="text-center mt-4">
+            <img src="baby.png" alt="Bebek" class="baby-img">
+        </div>
+
+        <!-- Free Visitor Counter -->
+        <div class="visitor-counter text-center mt-4">
             <a href='http://www.freevisitorcounters.com'>click here</a>
             <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=8c074b30edcf921aadac04f902c80127fb639366'></script>
             <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1441372/t/1"></script>
         </div>
-        <!-- Free Visitor Counter Bitiş -->
     </div>
 </div>
 
@@ -67,16 +119,11 @@
         const today = new Date();
         const diffTime = today - birthday;
 
-        // Gün sayısı
         const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-        // Hafta sayısı
         const diffWeeks = Math.floor(diffDays / 7);
-        // Ay sayısı (yaklaşık)
         const diffMonths = (today.getFullYear() - birthday.getFullYear()) * 12 +
                            (today.getMonth() - birthday.getMonth());
-        // Yıl sayısı
         let diffYears = today.getFullYear() - birthday.getFullYear();
-        // Eğer doğum günü bu yıl gelmemişse 1 yıl geri al
         if (today.getMonth() < birthday.getMonth() || 
            (today.getMonth() === birthday.getMonth() && today.getDate() < birthday.getDate())) {
             diffYears--;
